@@ -11,7 +11,8 @@ services:
       - NODE_ENV=development
     volumes:
       - ./api-gateway:/usr/src/app
-
+    networks:
+      - api-gateway-network
   orders-service:
     image: my-orders-service
     build:
@@ -20,7 +21,8 @@ services:
       - NODE_ENV=development
     volumes:
       - ./orders-service:/usr/src/app
-
+    networks:
+      - api-gateway-network
   products-service:
     image: my-products-service
     build:
@@ -29,7 +31,8 @@ services:
       - NODE_ENV=development
     volumes:
       - ./products-service:/usr/src/app
-
+    networks:
+      - api-gateway-network
   users-service:
     image: my-users-service
     build:
@@ -38,3 +41,8 @@ services:
       - NODE_ENV=development
     volumes:
       - ./users-service:/usr/src/app
+    networks:
+      - api-gateway-network
+networks:
+  api-gateway-network:
+    driver: bridge
