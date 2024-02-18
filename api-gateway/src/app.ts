@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.get("/", (req, res) => {
-  return res.status(httpStatus.OK).send("API GATEWAY hadi lan ordan!!!!");
+  return res.status(httpStatus.OK).send("API GATEWAY");
 });
 
 app.listen(PORT, () => {
