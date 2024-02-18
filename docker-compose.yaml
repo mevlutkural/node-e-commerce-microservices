@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+  api-gateway:
+    image: my-api-gateway
+    build:
+      context: ./api-gateway
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./api-gateway:/usr/src/app
+
+  orders-service:
+    image: my-orders-service
+    build:
+      context: ./orders-service
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./orders-service:/usr/src/app
+
+  products-service:
+    image: my-products-service
+    build:
+      context: ./products-service
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./products-service:/usr/src/app
+
+  users-service:
+    image: my-users-service
+    build:
+      context: ./users-service
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./users-service:/usr/src/app
